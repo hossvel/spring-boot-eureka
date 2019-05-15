@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +19,10 @@ import com.devhoss.model.Historico;
 public class RccServiceController {
 
 	   private static Map<Integer, List<Historico>> historicoDB = new HashMap<Integer, List<Historico>>();
+	   @Value("${server.port}")
+	    private String port;
+	   
+	   Logger logger = LoggerFactory.getLogger(RccServiceController.class);
 	   
 	    static {
 	    	historicoDB = new HashMap<Integer, List<Historico>>();
@@ -39,8 +46,7 @@ public class RccServiceController {
 	 
 	    @RequestMapping(value = "/historico/{id}", method = RequestMethod.GET)
 	    public List<Historico> getHistorico(@PathVariable int id) {
-	        System.out.println("Getting Student details for " + id);
-	 
+	    	logger.info("PORT: " + port);
 	        List<Historico> histList = historicoDB.get(id);
 	        if (histList == null) {
 	        	histList = new ArrayList<Historico>();

@@ -33,7 +33,7 @@ public class ClienteServiceController {
 	{
 		logger.info("REQUEST:" + id);
 
-		Cliente cliente = new Cliente(id,"carlos heredia",34);
+		Cliente cliente = new Cliente(id,"Hossmell velasco",30);
 
 		ResponseEntity<List<Historico>> response = restTemplate.exchange("http://rcc-service/historico/{id}",
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<Historico>>() {}, id);
