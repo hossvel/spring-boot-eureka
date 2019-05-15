@@ -1,16 +1,16 @@
 # spring-boot-eureka
 1. spring boot eureka importar a Spring tools Suite 4
 
-###### Eureka server run in :
+## Eureka server run in :
 Server donde se registran los servicios de eureka
 http://localhost:8761/
 
-###### Eureka Cliente rcc-service:
+## Eureka Cliente rcc-service:
 servicio que devuelve un historial.
 
 curl http://localhost:8098/historico/1
 
-###### Eureka Cliente cliente-service:
+## Eureka Cliente cliente-service:
 servicio que devuelve data compuesta, llamando al servicio de rcc-service.
  
 curl http://localhost:9098/clientes/1
